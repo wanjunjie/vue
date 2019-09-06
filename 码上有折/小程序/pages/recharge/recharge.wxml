@@ -1,0 +1,24 @@
+<!--pages/recharge/recharge.wxml-->
+<view class='app'>
+  <view class='renew-top-info'>您的超级会员已经到期，续费后即可继续享受折扣</view>
+  <view class='renew-item'>
+    <view class='i'>
+      <image src="/images/2018-10-23_03.png"></image>
+    </view>
+    <view class='t'>
+      限时特惠
+      <view class='n'>
+        <text class='b'>1</text>
+        元/月
+      </view>
+      <text class='g'>10元/月</text>
+    </view>
+  </view>
+      <button class='link-btn-orange'    bindtap='recharge'>立即续费</button>
+      
+      <navigator class='link-btn-gray' url='/pages/start/start'>暂不续费，立即买单</navigator>
+      
+      <navigator class='renew-bottom-info' url='/pages/invite/invite'>邀请好友，享免费续会员</navigator>
+    
+  
+</view>

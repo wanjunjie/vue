@@ -1,0 +1,658 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,li,dl,dt,dd{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+img {
+    border: 0;
+}
+.aip-clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ".";
+    clear: both;
+    height: 0;
+}
+* html .aip-clearfix {
+    zoom: 1;
+}
+*:first-child + html .aip-clearfix {
+    zoom: 1;
+}
+/*icon font*/
+.font-icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+/*输入提示默认*/
+::-webkit-input-placeholder {
+    color: #aeaeae; text-overflow: ellipsis;
+}
+:-moz-placeholder {
+    color: #aeaeae !important; text-overflow: ellipsis;
+}
+::-moz-placeholder {
+    color: #aeaeae !important; text-overflow: ellipsis;
+}
+:-ms-input-placeholder {
+    color: #aeaeae !important; text-overflow: ellipsis;
+}
+/*支付密码*/
+.aip-pay-password {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+.aip-pay-password .aip-content{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 2;
+    padding-bottom: 30px;
+}
+.aip-pay-password .aip-content .aip-title{
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px #eee solid;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+.aip-pay-password .aip-content .aip-title span{
+    display: inline-block;
+    line-height: 40px;
+}
+.aip-pay-password .aip-content .aip-title .aip-close{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #aeaeae;
+}
+.aip-pay-password .aip-content .aip-title .aip-password{
+    position: absolute;
+    right: 15px;
+    top: 0;
+    line-height: 40px;
+    font-size: 14px;
+    color: #aeaeae;
+}
+.aip-pay-password .aip-content .aip-money{
+    text-align: center;
+    color: #333;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.aip-pay-password .aip-content .aip-money span{
+    font-size: 28px;
+}
+.aip-pay-password .aip-password-box{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 1px;
+}
+.aip-pay-password .aip-password-box .aip-input{
+    position: absolute;
+    left: -20%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 120%;
+    font-size: 1px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.aip-pay-password .aip-password-box ul{
+    background-color: #fff;
+    margin: 0 30px;
+}
+.aip-pay-password .aip-password-box ul li{
+    float: left;
+    width: 11.5%;
+    text-align: center;
+    padding: 0 2.5%;
+}
+.aip-pay-password .aip-password-box ul li input{
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px #aeaeae solid;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: transparent;
+}
+.aip-pay-password .aip-password-box ul li.aip-selected input{
+    border: 1px #333 solid;
+}
+.aip-pay-password .aip-bg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .5;
+    z-index: 1;
+}
+/*确认对话框*/
+.aip-confirm-dialog{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1001;
+}
+.aip-confirm-dialog .aip-content{
+    position: fixed;
+    left: 25px;
+    right: 25px;
+    height: 130px;
+    margin-top: -65px;
+    top: 50%;
+    background-color: #fff;
+    z-index: 2;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+.aip-confirm-dialog .aip-content .aip-close{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 24px;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #666;
+}
+.aip-confirm-dialog .aip-content .aip-info{
+    display: table;
+    height: 90px;
+    width: 100%;
+    color: #434242;
+}
+.aip-confirm-dialog .aip-content .aip-info .content{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 20px;
+}
+.aip-confirm-dialog .aip-content .aip-footer{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    border-top: 1px #adadad solid;
+}
+.aip-confirm-dialog .aip-content .aip-footer a{
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.aip-confirm-dialog .aip-content .aip-footer a.gray{
+    color: #666;
+}
+.aip-confirm-dialog .aip-content .aip-footer .two-1{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40px;
+}
+.aip-confirm-dialog .aip-content .aip-footer .two-2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40px;
+    border-left: 1px #adadad solid;
+}
+.aip-confirm-dialog .aip-bg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .4;
+    z-index: 1;
+}
+/*提示框*/
+.aip-confirm{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1001;
+}
+.aip-confirm .aip-content{
+    position: fixed;
+    left: 25px;
+    right: 25px;
+    top: 0;
+    background-color: #fff;
+    z-index: 2;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    opacity: 0;
+}
+.aip-confirm .aip-content .aip-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #999;
+}
+.aip-confirm .aip-content .aip-info{
+    color: #434242;
+    line-height: 120%;
+    padding: 30px;
+    margin-top: 20px;
+}
+.aip-confirm .aip-content .aip-footer{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    border-top: 1px #adadad solid;
+}
+.aip-confirm .aip-content .aip-footer a{
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+.aip-confirm .aip-content .aip-footer a.gray{
+    color: #666;
+}
+.aip-confirm .aip-content .aip-footer .two-1{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40px;
+}
+.aip-confirm .aip-content .aip-footer .two-2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40px;
+    border-left: 1px #adadad solid;
+}
+.aip-confirm .aip-bg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .4;
+    z-index: 1;
+}
+/*提示信息*/
+.aip-tool-tip{
+    position: fixed;
+    left: 80px;
+    right: 80px;
+    height: 120px;
+    margin-top: -60px;
+    top: 50%;
+    background-color: rgba(0,0,0,0.75);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    z-index: 1002;
+}
+.aip-tool-tip .aip-content{
+    display: table;
+    height: 120px;
+    width: 100%;
+}
+.aip-tool-tip .aip-info{
+    display: table-cell;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+/*弹窗支付密码*/
+.aip-popup-pay-password {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+.aip-popup-pay-password .aip-content{
+    position: fixed;
+    left: 25px;
+    right: 25px;
+    margin-top: -65px;
+    top: 50%;
+    background-color: #fff;
+    z-index: 2;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+.aip-popup-pay-password .aip-content .aip-title{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+.aip-popup-pay-password .aip-content .aip-money{
+    text-align: center;
+    color: #333;
+    line-height: 60px;
+    height: 60px;
+}
+.aip-popup-pay-password .aip-content .aip-money span{
+    font-size: 28px;
+}
+.aip-popup-pay-password .aip-password-box{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.aip-popup-pay-password .aip-password-box .aip-input{
+    position: absolute;
+    left: -20%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 120%;
+    font-size: 1px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.aip-popup-pay-password .aip-password-box ul{
+    background-color: #fff;
+    margin: 0 15px;
+}
+.aip-popup-pay-password .aip-password-box ul li{
+    float: left;
+    width: 11.5%;
+    text-align: center;
+    padding: 0 2.5%;
+}
+.aip-popup-pay-password .aip-password-box ul li input{
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px #aeaeae solid;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+.aip-popup-pay-password .aip-password-box ul li.aip-selected input{
+    border: 1px #333 solid;
+}
+.aip-popup-pay-password .aip-footer{
+    position: relative;
+    height: 40px;
+    border-top: 1px #adadad solid;
+}
+.aip-popup-pay-password .aip-footer a{
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+.aip-popup-pay-password .aip-footer a.gray{
+    color: #666;
+}
+.aip-popup-pay-password .aip-footer .two-1{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40px;
+}
+.aip-popup-pay-password .aip-footer .two-2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40px;
+    border-left: 1px #adadad solid;
+}
+.aip-popup-pay-password .aip-bg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .5;
+    z-index: 1;
+}
+/*键盘支付密码*/
+.aip-keyboard-pay-password {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+.aip-keyboard-pay-password .aip-content{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 2;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 -2px 2px rgba(0, 0, 0, .1);
+    box-shadow: 0 -2px 2px rgba(0, 0, 0, .1);
+}
+.aip-keyboard-pay-password .aip-content .aip-title{
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    border-bottom: 1px #eee solid;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+.aip-keyboard-pay-password .aip-content .aip-title span{
+    display: inline-block;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.aip-keyboard-pay-password .aip-content .aip-title .aip-close{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #aeaeae;
+}
+.aip-keyboard-pay-password .aip-content .aip-title .aip-password{
+    position: absolute;
+    right: 15px;
+    top: 0;
+    line-height: 40px;
+    font-size: 14px;
+}
+.aip-keyboard-pay-password .aip-content .aip-money{
+    text-align: center;
+    color: #333;
+    padding: 20px 0 10px 0;
+}
+.aip-keyboard-pay-password .aip-content .aip-money span{
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 100%;
+    font-size: 12px;
+}
+.aip-keyboard-pay-password .aip-content .aip-money span.num{
+    font-size: 24px;
+}
+.aip-keyboard-pay-password .aip-password-box{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.aip-keyboard-pay-password .aip-password-box .aip-input{
+    position: absolute;
+    left: -20%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 120%;
+    font-size: 1px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.aip-keyboard-pay-password .aip-password-box ul{
+    background-color: #fff;
+    margin: 0 30px;
+    border: 1px #d9d9d9 solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.aip-keyboard-pay-password .aip-password-box ul li{
+    position: relative;
+    float: left;
+    width: 16.6%;
+    border-right: 1px #eee solid;
+}
+.aip-keyboard-pay-password .aip-password-box ul li:last-child{
+    border-right: none;
+}
+.aip-keyboard-pay-password .aip-password-box ul li .font-icon{
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 34px;
+    color: #333;
+    opacity: 0;
+}
+.aip-keyboard-pay-password .aip-password-box ul li input{
+    position: absolute;
+    padding: 0;
+    width: 1px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    font-size: 34px;
+    background-color: transparent;
+}
+.aip-keyboard-pay-password .aip-password-box ul li.aip-selected .font-icon{
+    opacity: 1;
+}
+.aip-keyboard-pay-password .aip-bg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .5;
+    z-index: 1;
+}
+.aip-keyboard-box{
+    background-color: #eee;
+    padding-bottom: 1%;
+}
+.aip-keyboard-box dd, .aip-keyboard-box dt{
+    width: 32%;
+    background-color: #fff;
+    margin-top: 1%;
+    margin-left: 1%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    float: left;
+    text-align: center;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.aip-keyboard-box dd:active, .aip-keyboard-box dt:active{
+    background-color: #ddd;
+    color: #fff;
+}
+.aip-keyboard-box .two-item{
+    width: 65%;
+}

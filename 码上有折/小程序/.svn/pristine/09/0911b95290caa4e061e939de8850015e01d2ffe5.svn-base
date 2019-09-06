@@ -1,0 +1,53 @@
+<!--pages/invite/invite.wxml-->
+<view class="app app2">
+    <view class="img invite-friends-img">
+        <navigator class="a" url="../inviteRecds/inviteRecds">我的分享</navigator>
+        <image style="height:298rpx" src="{{imgUrl}}2018-10-23-2_01.png"></image>
+    </view>
+    <view class="img invite-friends-img">
+        <text class="s">超级会员卡</text>
+        <view class="j">
+            已为您节省  
+            <text class="n">{{savedMoney}}</text>
+            元
+        </view>
+        <text class="time">卡片有效期至：{{validDate}}</text>
+        <image style="height:322rpx" src="{{imgUrl}}2018-10-23-2_02.png"></image>
+    </view>
+    <view class="img invite-friends-img">
+        <view class="info">
+            <text>• 每成功邀请1名好友，可获VIP自动续期7天（多邀请多得哦 ! ）</text><text>\n</text>
+            <text>• 受邀好友可免费获得1个月优惠买单VIP</text>
+        </view>
+        <image style="height:254.8rpx" src="{{imgUrl}}2018-10-23-2_03.png"></image>
+    </view>
+    <view class="img invite-friends-img">
+        <button class="btn-3" bindtap='shareProgram'>立即邀请</button>
+        <button class="btn-4" bindtap='getQrCode'>面对面邀请</button>
+        <image style="height:319.9rpx" src="{{imgUrl}}2018-10-23-2_04.png"></image>
+    </view>
+    <!-- 二维码弹框 -->
+    <view class="popup-qr-code" hidden='{{showView}}'>
+        <view class="main-content">
+            <text class="close" bindtap='closeQrCode'></text>
+            <view class="t">
+                邀请好友扫描二维码自动续会员
+            </view>
+            <view class="i">
+                <image src="{{qrcode}}" hidden='{{f2fView}}'></image>
+                <image src="{{miniQrcode}}" hidden='{{miniView}}'></image>
+            </view>
+        </view>
+        <view class="bg-content"></view>
+    </view>
+    <!-- 分享页弹框 -->
+    <view class="popup-qr-code" hidden='{{shareView}}' bindtap="closeShareView">
+        <view class="main-content main-content2">
+            <view class="weChatChare">
+                <button open-type="share"><view class="weChatChare-item"><image src="{{imgUrl}}weixin-copy.png"></image>微信好友</view></button>
+                <button bindtap="shareInCycle"><view class="weChatChare-item"><image src="{{imgUrl}}pengyouquan.png"></image>朋友圈</view></button>
+            </view>
+        </view>
+        <view class="bg-content"></view>
+    </view>
+</view>

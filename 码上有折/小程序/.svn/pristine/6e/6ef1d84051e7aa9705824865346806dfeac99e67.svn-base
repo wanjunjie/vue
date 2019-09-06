@@ -1,0 +1,70 @@
+<!-- start.wxml -->
+<view class="app">
+    <view class="img index-header">
+        <view class="s">
+            <text class="t">超级会员</text>
+            (还剩{{validDateNumber}}天)
+        </view>
+        <view class="j">
+            已为您节省
+            <text class="n">{{savedMoney}}</text>
+            元
+        </view>
+        <navigator class="a" url="../tradeRecds/tradeRecds" >交易明细</navigator>
+        <navigator class="img-a" url="../invite/invite?openId={{openId}}&sm={{savedMoney}}&vd={{validDate}}"></navigator>
+        <image style="height:258rpx" src="{{imageUrl}}2018_10_22_02.png"></image>
+    </view>
+
+    <view class="select-merchants-module">
+        <view class="title-content">
+            <text class="i"></text>
+            <text class="l">请选择商户付款</text>
+            <text class="r">支持全国门店</text>
+        </view>
+        <view class="main-content">
+             <view class="item" wx:for="{{respData.dataList}}" wx:key="id">
+             <!--
+            respData后台交互数据
+            dataList测试用本地数据
+            <view class="item" wx:for="{{dataList}}" wx:key="id">-->
+                <div class="i">
+                  <image src="{{item.imgUrl}}"></image>
+                </div>
+                <text class="t">{{item.name}}<text class="n"><text class="b">{{item.discount}}</text>折</text></text>
+                <a class="a" href="{{item.url}}">立即使用</a>
+            
+              </view>
+        </view>
+        <view class="bottom-content"><text class="t">到底啦，更多权益敬请期待</text></view>
+    </view>
+    <view class="index-bottom-info">
+        <view class="t">温馨提示：使用本服务付款后，不再开立报销发票。</view>
+    </view>
+
+    <!-- 体验弹框 -->
+    <view class="popup-experience-immediately" hidden="{{showView}}">
+        <view class="main-content">
+            <view class="info">
+                欢迎使用码上有折，会员可享肯德基、必胜客、家乐福等多家商户全国门店折扣买单，单单折、天天折，折上折，享受消费新体验。\n
+                您已获得30天《超级会员》，快来体验吧。
+            </view>
+            <view class="link" bindtap="onChangeShowState">立即体验</view>
+        </view>
+        <view class="bg-content"></view>
+    </view>
+    <!-- 支付成功弹框 -->
+    <view class="popup-invite-friends" hidden="true">
+        <view class="main-content">
+            <span class="close"></span>
+            <view class="i"></view>
+            <view class="t">
+                恭喜您!
+            </view>
+            <view class="info">
+                成功省钱 <span class="b">2.00</span> 元!
+            </view>
+            <navigator class="link" href="#">邀请好友，省得更多</navigator>
+        </view>
+        <view class="bg-content"></view>
+    </view>
+</view>

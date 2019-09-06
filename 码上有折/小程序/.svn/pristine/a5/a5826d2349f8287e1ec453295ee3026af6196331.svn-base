@@ -1,0 +1,20 @@
+<!--pages/tCustomer/tCustomer.wxml-->
+<view class="app app2">
+    <!--<web-view src="https://www.baidu.com/"></web-view>-->
+    <view class="img">
+        <image style="height:735.16rpx" src="{{imgUrl}}2018-10-23-1_01.png"></image>
+    </view>
+    <view class="img invite-friends-img">
+        <view class="info">
+            <text>• 专享肯德基、必胜客、家乐福等更多商家</text><text>\n</text>
+            <text style="margin-left:20rpx">优惠买单\n</text>
+            <text>• 每单可享折扣，覆盖全国\n</text>
+            <text>• 平均每月可节约元</text>
+        </view>
+        <image style="height:329.48rpx" src="{{imgUrl}}2018-10-23-1_02.png"></image>
+    </view>
+    <view class="img invite-friends-img">
+        <navigator class="btn-1">免费体验1个月</navigator>
+        <image style="height:267.32rpx" src="{{imgUrl}}2018-10-23-1_03.png"></image>
+    </view>
+</view>

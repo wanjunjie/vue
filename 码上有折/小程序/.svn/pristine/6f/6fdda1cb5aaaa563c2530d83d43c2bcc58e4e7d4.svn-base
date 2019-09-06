@@ -1,0 +1,164 @@
+//login.js
+//获取应用实例
+var jsonData = require('../../data/json.js');
+var app = getApp();
+var http = require('../start/http.js');
+var util = require('../../utils/dateUtils.js');
+
+Page({
+    data: {
+        remind: '加载中',
+        angle: 0,
+        userInfo: {},
+        imageUrl: app.globalData.imgUrl,
+        rootUrl: app.globalData.baseUrl,
+        showView: true,
+        savedMoney: 0,
+        openId: app.globalData.openId,
+        respData: {},
+        code:null,
+        appid: "wxf8081e43d0be6272",
+        refopenId:""
+    },
+    goToIndex() {
+        wx.switchTab({url: '/pages/index/index'});
+    },
+
+    onLoad: function () {
+        var that = this;
+        //先获取openid
+        if (that.data.openId) {
+            console.log("openid" + that.data.openId + "非空")
+        }
+        else {
+            that.getOpenid(that.data.openIdUrl).then(rspCode => {
+                that.setData({
+                  code: rspCode
+                })
+                console.log("获取code" + that.data.code),
+                //console.log("获取openId:" + that.data.openId);
+                //再获取首页信息
+                that.getFirstData(that.data.rootUrl + 'walletpn/LoginEnter/firstData?').then(backEndData => {
+                    that.setData({
+                      respData: backEndData.data,
+                      savedMoney: backEndData.data.savedAmt / 100,
+                      validDateNumber: backEndData.data.validDateNumber,
+                      validDate: backEndData.data.validDate,
+                      openId: backEndData.data.openId,
+                    })
+                    console.log("是否首次登录:" + backEndData.data.firstFlag)
+                    if (backEndData.data.firstFlag === '1'){
+                      console.log("是首次登录")
+                      showView: false
+                    }
+                    else{
+                      console.log("非首次登录")
+                    }
+                    console.log("获取首页信息:" , that.data.respData);
+                    //that.getValidDay(that.data.respData.validDate);
+                })
+            });
+        }
+    },
+    onShow: function () {
+        let that = this
+        let userInfo = wx.getStorageSync('userInfo')
+        if (!userInfo) {
+            wx.navigateTo({
+                url: "/pages/index/index"
+            })
+        } else {
+            that.setData({
+                userInfo: userInfo
+            })
+        }
+    },
+    onReady: function () {
+        var that = this;
+        setTimeout(function () {
+            that.setData({
+                remind: ''
+            });
+        }, 1000);
+        wx.onAccelerometerChange(function (res) {
+            var angle = -(res.x * 30).toFixed(1);
+            if (angle > 14) {
+                angle = 14;
+            }
+            else if (angle < -14) {
+                angle = -14;
+            }
+            if (that.data.angle !== angle) {
+                that.setData({
+                    angle: angle
+                });
+            }
+        });
+    },
+    onChangeShowState: function () {
+        var that = this;
+        console.log(that.data.showView);
+        that.setData({
+            showView: (!that.data.showView)
+        })
+    },
+    getValidDay: function (validDay) {
+        var that = this
+        var t1 = util.formatTime(new Date());
+        var t2 = validDay.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1/$2/$3 00:00:00")
+        var startDay = new Date(t1.replace(/-/g, "/"))
+        var endDay = new Date(t2)
+        var days = endDay.getTime() - startDay.getTime();
+        var day = parseInt(days / (1000 * 60 * 60 * 24));
+        that.setData({
+            d: day
+        })
+    },
+    getOpenid(url) {
+        let that = this;
+        return new Promise((resolve, reject) => {
+            wx.login({
+                success(res) {
+                    if (res.code) {
+                        resolve(res.code);
+                        //发起网络请求
+                        /*app.wxRequest(that.data.openIdUrl + 'redirect', {
+                            code: res.code,
+                            appid: "wxf8081e43d0be6272"
+                        }).then(resp => {
+                            resolve(resp.data);
+                        })*/
+                        /*
+                        wx.request({
+                            header: {'content-type': 'application/x-www-form-urlencoded'},
+                          url: that.data.rootUrl+"demoservice/redirect",
+                            data:{
+                                code: res.code,
+                                appid: "wxf8081e43d0be6272"
+                            },
+                            success:resp=>{
+                                resolve(resp.data);
+                            }
+                        })*/
+                    } else {
+                        console.log('登录失败！' + res.errMsg)
+                    }
+                }
+            })
+        });
+    },
+    getFirstData(url) {
+        let that = this;
+        return new Promise((resolve, reject) => {
+            //发起网络请求
+            app.wxRequest(url, {
+              //openId: that.data.openId
+              code: that.data.code,
+              refopenId: that.data.refopenId,
+              refAppId:that.data.appid
+            }).then(resp => {
+                resolve(resp);
+            })
+        });
+    },
+});

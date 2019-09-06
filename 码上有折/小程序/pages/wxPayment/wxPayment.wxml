@@ -1,0 +1,15 @@
+<!--pages/wxPayment/wxPayment.wxml-->
+<view class="container">
+
+    <view class="page-body">
+        <view class="page-section">
+            <view>支付金额</view>
+            <view class="price">0.01</view>
+            <view class="desc">码上有折支付</view>
+            <view class="btn-area">
+                <button type="primary" bindtap="wxPayment" loading="{{loading}}">支付</button>
+            </view>
+        </view>
+    </view>
+
+</view>

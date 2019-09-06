@@ -1,0 +1,10 @@
+/* pages/tCustomer/tCustomer.wxss */
+.app2 view{
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #333;
+    font-size: 26.88rpx;
+}

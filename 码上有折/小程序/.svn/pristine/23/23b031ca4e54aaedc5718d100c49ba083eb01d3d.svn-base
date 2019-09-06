@@ -1,0 +1,42 @@
+<!--pages/inviteRecds/inviteRecds.wxml-->
+
+<scroll-view style="height:100%"  calss="app" scroll-y bindscroll="scroll" bindscrolltolower="getMoreRecds">
+  <view class="my-invitation">
+    <view class="item">
+      <text>累计邀请</text>
+      <text class="n"><text>{{inviteTotal}}</text>人</text>
+    </view>
+    <view class="item">
+      <text>已为您免费续期</text>
+      <text class="n"><text>{{bonusDays}}</text>天</text>
+    </view>
+  </view>
+  <view class="my-invitation-list">
+    <block wx:for="{{inviteRecds}}" wx:for-item="recd">
+      
+      <view class="item">
+        <view class="t">
+          <text>邀请时间：</text><text>{{recd.createDatetime}}</text>
+        </view>
+        <view class="n">
+          <text>{{recd.invitedUserId}}</text>
+        </view>
+      </view>
+      
+    </block>
+  </view>
+  <view class="load-more-wrap">
+      <block wx:if="{{hasMore}}">
+        <view class="load-content">
+          <text class="weui-loading"/><text class="loading-text">玩命加载中</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="load-content">
+          <text>没有更多内容了</text>
+        </view>
+      </block>
+  </view>
+  
+</scroll-view>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta content=”telephone=no” name=”format-detection” />
+    <title>提现</title>
+    <link rel="stylesheet" href="aip/css/AIP.css"/>
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrap">
+        <div class="withdrawal-title">提现至</div>
+        <dl class="withdrawal-bank-list">
+            <dd class="red">
+                <div class="logo"><img src="img/bank/bank-1.png"></div>
+                <div class="name">华夏银行  储蓄卡（2304）</div>
+                <div class="num">**** **** **** 6732</div>
+            </dd>
+        </dl>
+    </div>
+    <div class="withdrawal-pop-up">    
+        <div class="withdrawal-content pb-100">        
+            <div class="title">
+                <span class="t">提现金额</span>
+                <div class="r">当前余额 <span class="orange">2431.00</span>元</div>
+            </div>
+            <div class="input-content">
+                <div class="title">¥</div>
+                <div class="input-box">
+                    <input type="tel" placeholder="输入提现金额">
+                    <div class="clear-input">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-guanbi"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="prompt">今日还可提现<span class="orange">3</span>次，剩余提现额度<span class="orange">30000元</span></div>
+            <a class="btn btn-blue mt-20" href="javascript:void(0)">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-dui1"></use>
+                </svg>
+                充值成功
+            </a>
+            <a class="btn btn-blue mt-20" href="javascript:void(0)">
+                <svg class="icon rotate" aria-hidden="true">
+                    <use xlink:href="#icon-jiazai1"></use>
+                </svg>
+                正在充值
+            </a>
+            <a class="btn btn-blue mt-20" href="javascript:AIP.addKeyboardPayPassword('1800.00', {callback:getV, forgot:getV})">提现</a>
+        </div>   
+        <div class="withdrawal-bg"></div>
+    </div>
+   
+</body>
+<script src="aip/js/aipiconfont/iconfont.js"></script>
+<script src="img/iconfont/iconfont.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="aip/js/fastclick.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="aip/js/AIP.js"></script>
+<script type="text/javascript">
+    function getV(){
+        var v = $("#passWordInput").val();
+        setTimeout(function(){AIP.addToolTip(v)}, 300);
+    }
+</script>
+</html>

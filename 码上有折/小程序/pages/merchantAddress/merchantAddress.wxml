@@ -1,0 +1,2 @@
+<!--pages/merchantAddress/merchantAddress.wxml-->
+<web-view src="{{merchantUrl}}"></web-view>

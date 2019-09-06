@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/invite/invite",
+    "pages/tCustomer/tCustomer",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/inviteRecds/inviteRecds",
+    "pages/tradeRecds/tradeRecds",
+    "pages/recharge/recharge",
+    "pages/merchantAddress/merchantAddress",
+    "pages/wxPayment/wxPayment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "码上有折",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#70B439",
+    "selectedColor": "#FEC804",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index1.png",
+        "selectedIconPath": "images/index11.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/index3.png",
+        "selectedIconPath": "images/index33.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

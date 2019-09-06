@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta content=”telephone=no” name=”format-detection” />
+    <link href="css/app.css" type="text/css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div class="app">
+        <div class="img invite-friends-img">
+            <a class="a" href="#">我的分享</a>
+            <img src="images/2018-10-23-2_01.png">
+        </div>
+        <div class="img invite-friends-img">
+            <span class="s">超级会员卡</span>
+            <div class="j">
+                已为您节省  
+                <span class="n">23.00 </span>
+                元
+            </div>
+            <span class="time">卡片有效期至：2018.10.30</span>
+            <img src="images/2018-10-23-2_02.png">
+        </div>
+        <div class="img invite-friends-img">
+            <div class="info">
+                • 每成功邀请1名好友，可获VIP自动续期7天（多邀请多得哦 ! ）<br>
+                • 受邀好友可免费获得1个月优惠买单VIP
+            </div>
+            <img src="images/2018-10-23-2_03.png">
+        </div>
+        <div class="img invite-friends-img">
+            <a class="btn-1" href="#">立即邀请</a>
+            <a class="btn-2" href="#">面对面邀请</a>
+            <img src="images/2018-10-23-2_04.png">
+        </div>
+        <!-- 分享 -->
+        <div v-if="share" class="popup-share">
+            <div @click="share = false" class="img-share">
+                <span>点击上方分享功能</span>
+            </div>
+            <!-- <div class="icon-share">
+                <span>点击上方分享功能</span>
+            </div> -->
+            <div class="bg-content"></div>
+        </div>
+        <!-- 二维码弹框 -->
+        <div class="popup-qr-code" style="display:none">
+            <div class="main-content">
+                <span class="close"></span>
+                <div class="t">
+                    邀请好友扫描二维码自动续会员
+                </div>
+                <div class="i">
+                    <img src="images/2018-10-23_16.png">
+                </div>
+            </div>
+            <div class="bg-content"></div>
+        </div>
+        
+    </div>
+</body>
+<script src="js/app.js"></script>
+</html>

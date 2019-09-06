@@ -1,0 +1,22 @@
+/* pages/recharge/recharge.wxss */
+.renew-item .i image{
+    display:inline;
+}
+
+.renew-item .i {
+  display:inline;
+}
+.renew-item .t {
+  display:inline;
+}
+.renew-item .t .n {
+  display:inline;
+}
+
+.link-btn-orange {
+    margin-top: 240rpx;
+}
+
+.link-btn-gray {
+    margin-top: 48rpx;
+}
